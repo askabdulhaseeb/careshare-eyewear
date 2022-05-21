@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "254801060212",
+    "project_id": "careshare-eyewear",
+    "storage_bucket": "careshare-eyewear.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254801060212:android:2eebc72c65201aec780c21",
+        "android_client_info": {
+          "package_name": "com.example.careshareeyewear"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254801060212-5p5bjq08s4824h1gd1mhsgcllqs87bq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.careshareeyewear",
+            "certificate_hash": "f63c6e073798d1378d8dad2b80be5e2c50ef71f9"
+          }
+        },
+        {
+          "client_id": "254801060212-h3suqmce4per2vq2lt74l1g3va81lj1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjnASRcVprNY9uWhRzES4VMOP3T9PSmKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254801060212-h3suqmce4per2vq2lt74l1g3va81lj1n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "254801060212-n4gn892vb00rv3u6jl23mth7v63nrl11.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.careshareeyewear"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
