@@ -1,6 +1,11 @@
-import 'package:careshareeyewear/screens/auth/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'database/auth_methods.dart';
+import 'providers/app_provider.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/main_screen/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,15 +17,22 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Care Share Eye Wear',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      // ignore: always_specify_types
+      providers: [
+        ChangeNotifierProvider<AppProvider>.value(value: AppProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Care Share Eye Wear',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: AuthMethods.uid == '' ? const LoginScreen() : const MainScreen(),
+        routes: <String, WidgetBuilder>{
+          LoginScreen.routeName: (_) => const LoginScreen(),
+          MainScreen.routeName: (_) => const MainScreen(),
+        },
       ),
-      home: const LoginScreen(),
-      routes: {
-        LoginScreen.routeName: (_) => const LoginScreen(),
-      },
     );
   }
 }
