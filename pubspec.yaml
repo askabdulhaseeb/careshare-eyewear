@@ -1,6 +1,6 @@
 name: careshareeyewear
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.4
+  intl: ^0.17.0
 
   firebase_auth: ^3.3.18
   firebase_core: ^1.17.0
@@ -19,6 +20,7 @@ dependencies:
 
   fluttertoast: ^8.0.9
   url_launcher: ^6.1.2
+  intl_phone_field: ^3.0.1
 
   image_picker: ^0.8.5
   extended_image: ^6.2.1
@@ -32,6 +34,6 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - images/
   #   - images/a_dot_ham.jpeg
