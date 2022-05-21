@@ -20,27 +20,12 @@ class MainBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.home_outlined),
           activeIcon: Icon(Icons.home_rounded),
-          label: 'Home',
+          label: 'Product',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart_outlined),
           activeIcon: Icon(Icons.shopping_cart),
-          label: 'Cart',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.add_box_outlined),
-          activeIcon: Icon(Icons.add_box),
-          label: 'Add',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat_outlined),
-          activeIcon: Icon(Icons.chat),
-          label: 'chat',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.account_box_outlined),
-          activeIcon: Icon(Icons.account_box),
-          label: 'Profile',
+          label: 'Orders',
         ),
       ],
     );

@@ -15,10 +15,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   static const List<Widget> _pages = <Widget>[
     ProductScreen(),
-    Center(child: Text('Bet')),
-    Center(child: Text('Add')),
-    Center(child: Text('Message')),
-    Center(child: Text('MyProd')),
+    Center(child: Text('Orders')),
   ];
   @override
   Widget build(BuildContext context) {
