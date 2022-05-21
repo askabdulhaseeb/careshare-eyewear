@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/app_provider.dart';
-import '../home_screen/home_screen.dart';
+import '../product_screeen/product_screen.dart';
 import 'main_bottom_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   static const List<Widget> _pages = <Widget>[
-    HomeScreen(),
+    ProductScreen(),
     Center(child: Text('Bet')),
     Center(child: Text('Add')),
     Center(child: Text('Message')),
