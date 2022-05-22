@@ -3,14 +3,19 @@ import '../../models/product.dart';
 import '../custom_widgets/custom_slideable_urls_tile.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({required this.posts, Key? key}) : super(key: key);
+  const ProductGridView({
+    required this.posts,
+    this.crossAxisCount = 2,
+    Key? key,
+  }) : super(key: key);
   final List<Product> posts;
+  final int crossAxisCount;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),

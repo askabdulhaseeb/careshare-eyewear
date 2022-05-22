@@ -7,7 +7,7 @@ import 'providers/app_provider.dart';
 import 'providers/category_provider.dart';
 import 'providers/product_provider.dart';
 import 'screens/auth/login_screen.dart';
-import 'screens/main_screen/main_screen.dart';
+import 'screens/product_screeen/product_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,13 +39,13 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Care Share Eye Wear',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MainScreen(),
+        home: const ProductScreen(),
         routes: <String, WidgetBuilder>{
           LoginScreen.routeName: (_) => const LoginScreen(),
-          MainScreen.routeName: (_) => const MainScreen(),
         },
       ),
     );

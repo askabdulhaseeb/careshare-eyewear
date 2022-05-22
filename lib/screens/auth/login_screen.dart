@@ -7,7 +7,7 @@ import '../../widgets/custom_widgets/custom_elevated_button.dart';
 import '../../widgets/custom_widgets/custom_textformfield.dart';
 import '../../widgets/custom_widgets/password_textformfield.dart';
 import '../../widgets/custom_widgets/show_loading.dart';
-import '../main_screen/main_screen.dart';
+import '../product_screeen/product_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             } else {
                               if (!mounted) return;
                               Navigator.of(context).pushNamedAndRemoveUntil(
-                                  MainScreen.routeName,
+                                  ProductScreen.routeName,
                                   (dynamic route) => false);
                             }
                           }

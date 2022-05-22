@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/product_provider.dart';
+import '../../widgets/custom_widgets/responsive_layout.dart';
 import '../../widgets/product/product_gridview.dart';
+import 'product_screen_desktop_screen.dart';
+import 'product_screen_mobile_view.dart';
+import 'product_screen_table_view.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -11,37 +15,13 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Consumer<ProductProvider>(
-            builder: (BuildContext context, ProductProvider prodPro, _) {
-              return RefreshIndicator(
-                onRefresh: () => prodPro.refesh(),
-                child: Column(children: <Widget>[
-                  CupertinoSearchTextField(
-                    itemSize: 44,
-                    prefixIcon: const Icon(CupertinoIcons.search, size: 24),
-                    suffixIcon: const Icon(Icons.cancel, size: 24),
-                    onChanged: (String? value) => print(value),
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.add),
-                    minLeadingWidth: 0,
-                    title: const Text('Add Product'),
-                    subtitle:
-                        const Text('Click here to add new product in stock'),
-                    trailing: const Icon(Icons.arrow_forward_ios_rounded),
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: 20),
-                  ProductGridView(posts: prodPro.products),
-                ]),
-              );
-            },
-          ),
-        ),
+    final ProductProvider prodPro = Provider.of<ProductProvider>(context);
+    prodPro.init();
+    return const Scaffold(
+      body: ResponsiveLayout(
+        mobile: ProductScreenMobileView(),
+        tablet: ProductScreenTableView(),
+        desktop: ProductScreenDesktopView(),
       ),
     );
   }
