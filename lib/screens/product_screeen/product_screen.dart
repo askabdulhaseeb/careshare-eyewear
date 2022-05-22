@@ -2,11 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../database/auth_methods.dart';
-import '../../models/product.dart';
 import '../../providers/product_provider.dart';
 import '../../widgets/product/product_gridview.dart';
-import 'add_product_screen.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -36,17 +33,7 @@ class ProductScreen extends StatelessWidget {
                     subtitle:
                         const Text('Click here to add new product in stock'),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded),
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute<AddProductScreen>(
-                              builder: (BuildContext context) =>
-                                  AddProductScreen(
-                                      product: Product(
-                                    pid: AuthMethods.uniqueID,
-                                    name: '',
-                                    urls: <String>[],
-                                  ))));
-                    },
+                    onTap: () {},
                   ),
                   const SizedBox(height: 20),
                   ProductGridView(posts: prodPro.products),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../models/product.dart';
-import '../../screens/product_screeen/add_product_screen.dart';
 import '../custom_widgets/custom_slideable_urls_tile.dart';
 
 class ProductGridView extends StatelessWidget {
@@ -24,11 +23,11 @@ class ProductGridView extends StatelessWidget {
           color: Colors.grey.shade200,
           child: InkWell(
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute<AddProductScreen>(
-                  builder: (_) => AddProductScreen(product: posts[index]),
-                ),
-              );
+              // Navigator.of(context).push(
+              //   MaterialPageRoute<AddProductScreen>(
+              //     builder: (_) => AddProductScreen(product: posts[index]),
+              //   ),
+              // );
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
