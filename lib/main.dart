@@ -52,3 +52,4 @@ class MyApp extends StatelessWidget {
 
 // flutter build web
 // firebase deploy --only hosting
+// https://careshare-eyewear.web.app/#/
