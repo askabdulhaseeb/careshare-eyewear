@@ -12,15 +12,15 @@ dependencies:
   intl: ^0.17.0
 
   firebase_auth: ^3.3.18
-  firebase_core: ^1.17.0
+  # firebase_core: ^1.17.0
   cloud_firestore: ^3.1.15
   firebase_storage: ^10.2.16
 
-  provider: ^6.0.2
+  provider: ^6.0.3
 
   fluttertoast: ^8.0.9
   url_launcher: ^6.1.2
-  intl_phone_field: ^3.0.1
+  intl_phone_field: ^3.1.0
 
   image_picker: ^0.8.5
   carousel_slider: ^4.1.1

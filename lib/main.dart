@@ -11,7 +11,17 @@ import 'screens/main_screen/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyAG0wux4ptFQQq0pmWbhUWpQzREO4ACtlU',
+      authDomain: 'careshare-eyewear.firebaseapp.com',
+      projectId: 'careshare-eyewear',
+      storageBucket: 'careshare-eyewear.appspot.com',
+      messagingSenderId: '254801060212',
+      appId: '1:254801060212:web:4c8a9a5b63a63a7a780c21',
+      measurementId: 'G-TF9PB6LF4X',
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -32,7 +42,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: AuthMethods.uid == '' ? const LoginScreen() : const MainScreen(),
+        home: const MainScreen(),
         routes: <String, WidgetBuilder>{
           LoginScreen.routeName: (_) => const LoginScreen(),
           MainScreen.routeName: (_) => const MainScreen(),
