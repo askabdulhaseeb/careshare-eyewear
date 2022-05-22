@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
 import '../../database/auth_methods.dart';
 import '../../database/product_api.dart';
@@ -9,6 +10,7 @@ import '../../functions/image_functions.dart';
 import '../../functions/time_date_functions.dart';
 import '../../models/prod_category.dart';
 import '../../models/product.dart';
+import '../../providers/product_provider.dart';
 import '../../services/custom_services.dart';
 import '../../utilities/custom_validators.dart';
 import '../../widgets/custom_widgets/custom_elevated_button.dart';
@@ -152,6 +154,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
                             await ProductAPI().addProduct(widget.product);
                             if (!mounted) return;
+                            Provider.of<ProductProvider>(context, listen: false)
+                                .refesh();
                             Navigator.of(context).pop();
                           }
                         },
