@@ -4,6 +4,7 @@ class Product {
   Product({
     required this.pid,
     required this.name,
+    this.category,
     this.description = '',
     this.quantity = 0,
     this.price = 0,
@@ -13,6 +14,7 @@ class Product {
 
   final String pid;
   String name;
+  String? category;
   String description;
   int quantity;
   double price;
@@ -23,6 +25,7 @@ class Product {
     return <String, dynamic>{
       'pid': pid,
       'name': name,
+      'category':category,
       'description': description,
       'quantity': quantity,
       'price': price,
@@ -36,6 +39,7 @@ class Product {
     return Product(
       pid: doc.data()?['pid'] ?? '',
       name: doc.data()?['name'] ?? '',
+      category: doc.data()?['category'] ?? '',
       description: doc.data()?['description'] ?? '',
       quantity: int.parse(doc.data()?['quantity']?.toString() ?? '0'),
       price: double.parse(doc.data()?['price']?.toString() ?? '0.0'),
