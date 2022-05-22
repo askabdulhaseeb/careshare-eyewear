@@ -14,6 +14,7 @@ import '../../providers/product_provider.dart';
 import '../../services/custom_services.dart';
 import '../../utilities/custom_validators.dart';
 import '../../widgets/custom_widgets/custom_elevated_button.dart';
+import '../../widgets/custom_widgets/custom_slideable_urls_tile.dart';
 import '../../widgets/custom_widgets/custom_textformfield.dart';
 import '../../widgets/custom_widgets/custom_toast.dart';
 import '../../widgets/custom_widgets/show_loading.dart';
@@ -71,10 +72,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(height: 20),
-                GetProductImages(
-                  file: _files,
-                  onTap: () => _fetchMedia(),
-                ),
+                widget.product.urls.isNotEmpty
+                    ? CustomSlidableURLsTile(urls: widget.product.urls)
+                    : GetProductImages(
+                        file: _files,
+                        onTap: () => _fetchMedia(),
+                      ),
                 _title('Product Name'),
                 CustomTextFormField(
                   controller: _name,
