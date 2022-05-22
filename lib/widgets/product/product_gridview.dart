@@ -78,23 +78,34 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height - 100;
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: Dialog(
         child: SizedBox(
-          height: 300,
-          width: 600,
-          child: Row(
+          height: height,
+          width: 300,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: double.infinity,
-                width: 300,
-                child: CustomSlidableURLsTile(urls: post.urls),
+                height: height / 2,
+                width: double.infinity,
+                child: Stack(
+                  alignment: Alignment.topRight,
+                  children: <Widget>[
+                    CustomSlidableURLsTile(urls: post.urls),
+                    IconButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      icon: const Icon(Icons.cancel),
+                    )
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: SizedBox(
+                  height: (height / 2) - 40,
                   width: 300 - 40,
                   child: SingleChildScrollView(
                     child: Column(
