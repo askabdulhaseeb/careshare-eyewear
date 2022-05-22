@@ -50,4 +50,5 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// gsutil cors set cors.json gs://careshare-eyewear.appspot.com
+// flutter build web
+// firebase deploy --only hosting
