@@ -23,6 +23,7 @@ dependencies:
   intl_phone_field: ^3.0.1
 
   image_picker: ^0.8.5
+  carousel_slider: ^4.1.1
   extended_image: ^6.2.1
 
 dev_dependencies:

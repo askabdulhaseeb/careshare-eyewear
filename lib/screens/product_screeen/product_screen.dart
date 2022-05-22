@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../database/auth_methods.dart';
 import '../../models/product.dart';
+import '../../providers/product_provider.dart';
+import '../../widgets/product/product_gridview.dart';
 import 'add_product_screen.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -41,6 +44,11 @@ class ProductScreen extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
+              Consumer<ProductProvider>(
+                builder: (BuildContext context, ProductProvider prodPro, _) {
+                  return ProductGridView(posts: prodPro.products);
+                },
+              )
             ],
           ),
         ),

@@ -22,6 +22,19 @@ class ProductAPI {
     }
   }
 
+  Future<List<Product>> getProducts() async {
+    List<Product> _products = <Product>[];
+    final QuerySnapshot<Map<String, dynamic>> doc = await _instance
+        .collection(_collection)
+        .orderBy('timestamp', descending: true)
+        .get();
+    for (DocumentSnapshot<Map<String, dynamic>> element in doc.docs) {
+      _products.add(Product.fromDoc(element));
+    }
+    return _products;
+  }
+
+
   Future<String?> uploadImage({required String pid, required File file}) async {
     try {
       TaskSnapshot snapshot = await FirebaseStorage.instance

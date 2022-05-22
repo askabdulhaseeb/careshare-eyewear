@@ -38,7 +38,7 @@ class Product {
   }
 
   // ignore: sort_constructors_first
-  factory Product.fromMap(DocumentSnapshot<Map<String, dynamic>> doc) {
+  factory Product.fromDoc(DocumentSnapshot<Map<String, dynamic>> doc) {
     return Product(
       pid: doc.data()?['pid'] ?? '',
       name: doc.data()?['name'] ?? '',

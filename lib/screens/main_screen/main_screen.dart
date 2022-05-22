@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/app_provider.dart';
 import '../../providers/category_provider.dart';
+import '../../providers/product_provider.dart';
 import '../product_screeen/product_screen.dart';
 import 'main_bottom_navigation_bar.dart';
 
@@ -22,6 +23,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final int currentIndex = Provider.of<AppProvider>(context).currentTap;
     Provider.of<CategoryProvider>(context).init();
+    Provider.of<ProductProvider>(context).init();
     return Scaffold(
         body: _pages[currentIndex],
         bottomNavigationBar: const MainBottomNavigationBar());
