@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'database/auth_methods.dart';
 import 'providers/app_provider.dart';
 import 'providers/category_provider.dart';
 import 'providers/product_provider.dart';
@@ -51,3 +49,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// gsutil cors set cors.json gs://careshare-eyewear.appspot.com

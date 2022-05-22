@@ -28,11 +28,11 @@ class ProductGridView extends StatelessWidget {
           color: Colors.grey.shade200,
           child: InkWell(
             onTap: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute<AddProductScreen>(
-              //     builder: (_) => AddProductScreen(product: posts[index]),
-              //   ),
-              // );
+              showDialog(
+                context: context,
+                builder: (BuildContext context) =>
+                    CustomDialog(post: posts[index]),
+              );
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,6 +64,105 @@ class ProductGridView extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomDialog extends StatelessWidget {
+  const CustomDialog({required this.post, Key? key}) : super(key: key);
+
+  final Product post;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: Dialog(
+        child: SizedBox(
+          height: 300,
+          width: 600,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                height: double.infinity,
+                width: 300,
+                child: CustomSlidableURLsTile(urls: post.urls),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: SizedBox(
+                  width: 300 - 40,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SelectableText(
+                          post.name,
+                          maxLines: 2,
+                          minLines: 1,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                          ),
+                        ),
+                        SelectableText(
+                          'ID: ${post.pid}',
+                          maxLines: 2,
+                          minLines: 1,
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 11,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        SelectableText(
+                          'Price: ${post.price}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SelectableText(
+                          'Avaiable Qty: ${post.quantity}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Divider(),
+                        const Text(
+                          'About this',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SelectableText(post.description),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {},
+                              splashRadius: 16,
+                              icon: const Icon(
+                                Icons.remove_circle,
+                                color: Colors.red,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              splashRadius: 16,
+                              icon: const Icon(
+                                Icons.add_circle,
+                                color: Colors.green,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
