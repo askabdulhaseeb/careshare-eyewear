@@ -4,6 +4,7 @@ class Product {
   Product({
     required this.pid,
     required this.name,
+    required this.urls,
     this.category,
     this.description = '',
     this.quantity = 0,
@@ -14,6 +15,7 @@ class Product {
 
   final String pid;
   String name;
+  List<String> urls;
   String? category;
   String description;
   int quantity;
@@ -25,7 +27,8 @@ class Product {
     return <String, dynamic>{
       'pid': pid,
       'name': name,
-      'category':category,
+      'urls': urls,
+      'category': category,
       'description': description,
       'quantity': quantity,
       'price': price,
@@ -39,6 +42,7 @@ class Product {
     return Product(
       pid: doc.data()?['pid'] ?? '',
       name: doc.data()?['name'] ?? '',
+      urls: List<String>.from(doc.data()?['urls']),
       category: doc.data()?['category'] ?? '',
       description: doc.data()?['description'] ?? '',
       quantity: int.parse(doc.data()?['quantity']?.toString() ?? '0'),

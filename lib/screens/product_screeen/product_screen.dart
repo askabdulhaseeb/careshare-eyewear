@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../database/auth_methods.dart';
+import '../../models/product.dart';
+import 'add_product_screen.dart';
+
 class ProductScreen extends StatelessWidget {
   const ProductScreen({Key? key}) : super(key: key);
   static const String routeName = '/ProductScreen';
@@ -25,7 +29,16 @@ class ProductScreen extends StatelessWidget {
                 title: const Text('Add Product'),
                 subtitle: const Text('Click here to add new product in stock'),
                 trailing: const Icon(Icons.arrow_forward_ios_rounded),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute<AddProductScreen>(
+                          builder: (BuildContext context) => AddProductScreen(
+                                  product: Product(
+                                pid: AuthMethods.uniqueID,
+                                name: '',
+                                urls: <String>[],
+                              ))));
+                },
               ),
               const SizedBox(height: 20),
             ],

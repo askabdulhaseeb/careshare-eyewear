@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'database/auth_methods.dart';
 import 'providers/app_provider.dart';
+import 'providers/category_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/main_screen/main_screen.dart';
 
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
       // ignore: always_specify_types
       providers: [
         ChangeNotifierProvider<AppProvider>.value(value: AppProvider()),
+        ChangeNotifierProvider<CategoryProvider>.value(
+            value: CategoryProvider()),
       ],
       child: MaterialApp(
         title: 'Care Share Eye Wear',
