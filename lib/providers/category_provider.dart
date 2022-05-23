@@ -14,9 +14,9 @@ class CategoryProvider extends ChangeNotifier {
   }
 
   ProdCategory? category(String? cid) {
-    final int _index =
+    final int index =
         _categories.indexWhere((ProdCategory element) => element.cid == cid);
-    return (_index < 0) ? null : _categories[_index];
+    return (index < 0) ? null : _categories[index];
   }
 
   _load() {

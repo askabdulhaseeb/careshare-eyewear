@@ -34,7 +34,8 @@ class Order {
       uid: map['uid'] ?? '',
       name: map['name'] ?? '',
       status: DeliveryStatusConvertor.getEnum(map['status']),
-      cartItem: List<Cart>.from(map['cartItem']?.map((dynamic x) => Cart.fromMap(x))),
+      cartItem:
+          List<Cart>.from(map['cartItem']?.map((dynamic x) => Cart.fromMap(x))),
       rating: map['rating'] ?? '',
       timestamp: int.parse(map['timestamp']?.toString() ?? '0'),
     );
@@ -49,7 +50,7 @@ class Cart {
   });
 
   final String pid;
-  final int quantity;
+  int quantity;
   final double price;
 
   Map<String, dynamic> toMap() {

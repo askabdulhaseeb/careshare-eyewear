@@ -4,6 +4,8 @@ class Product {
   Product({
     required this.pid,
     required this.name,
+    required this.phoneNumber,
+    required this.address,
     required this.urls,
     this.category,
     this.description = '',
@@ -15,6 +17,8 @@ class Product {
 
   final String pid;
   String name;
+  String phoneNumber;
+  String address;
   List<String> urls;
   String? category;
   String description;
@@ -28,6 +32,8 @@ class Product {
       'pid': pid,
       'name': name,
       'urls': urls,
+      'phone_number': phoneNumber,
+      'address': address,
       'category': category,
       'description': description,
       'quantity': quantity,
@@ -42,6 +48,8 @@ class Product {
     return Product(
       pid: doc.data()?['pid'] ?? '',
       name: doc.data()?['name'] ?? '',
+      phoneNumber: doc.data()?['phone_number'] ?? '',
+      address: doc.data()?['address'] ?? '',
       urls: List<String>.from(doc.data()?['urls']),
       category: doc.data()?['category'] ?? '',
       description: doc.data()?['description'] ?? '',

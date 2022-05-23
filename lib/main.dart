@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/app_provider.dart';
 import 'providers/category_provider.dart';
+import 'providers/order_provider.dart';
 import 'providers/product_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/product_screeen/product_screen.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<AppProvider>.value(value: AppProvider()),
         ChangeNotifierProvider<ProductProvider>.value(value: ProductProvider()),
+        ChangeNotifierProvider<OrderProvider>.value(value: OrderProvider()),
         ChangeNotifierProvider<CategoryProvider>.value(
             value: CategoryProvider()),
       ],

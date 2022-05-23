@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../models/product.dart';
+import '../../providers/order_provider.dart';
+import '../custom_widgets/custom_elevated_button.dart';
 import '../custom_widgets/custom_slideable_urls_tile.dart';
+import '../custom_widgets/custom_textformfield.dart';
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({
@@ -71,11 +75,17 @@ class ProductGridView extends StatelessWidget {
   }
 }
 
-class CustomDialog extends StatelessWidget {
+class CustomDialog extends StatefulWidget {
   const CustomDialog({required this.post, Key? key}) : super(key: key);
 
   final Product post;
 
+  @override
+  State<CustomDialog> createState() => _CustomDialogState();
+}
+
+class _CustomDialogState extends State<CustomDialog> {
+  String _qty = '1';
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height - 100;
@@ -97,7 +107,7 @@ class CustomDialog extends StatelessWidget {
                     SizedBox(
                       height: height / 2,
                       width: double.infinity,
-                      child: CustomSlidableURLsTile(urls: post.urls),
+                      child: CustomSlidableURLsTile(urls: widget.post.urls),
                     ),
                     IconButton(
                       onPressed: () => Navigator.of(context).pop(),
@@ -116,7 +126,7 @@ class CustomDialog extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         SelectableText(
-                          post.name,
+                          widget.post.name,
                           maxLines: 2,
                           minLines: 1,
                           style: const TextStyle(
@@ -125,7 +135,7 @@ class CustomDialog extends StatelessWidget {
                           ),
                         ),
                         SelectableText(
-                          'ID: ${post.pid}',
+                          'ID: ${widget.post.pid}',
                           maxLines: 2,
                           minLines: 1,
                           style: const TextStyle(
@@ -135,13 +145,13 @@ class CustomDialog extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         SelectableText(
-                          'Price: ${post.price}',
+                          'Price: ${widget.post.price}',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         SelectableText(
-                          'Avaiable Qty: ${post.quantity}',
+                          'Avaiable Qty: ${widget.post.quantity}',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -151,19 +161,40 @@ class CustomDialog extends StatelessWidget {
                           'About this',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        SelectableText(post.description),
+                        SelectableText(widget.post.description),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                int temp = int.parse(_qty);
+                                if (temp == 0) return;
+                                temp--;
+                                setState(() {
+                                  _qty = temp.toString();
+                                });
+                              },
                               splashRadius: 16,
                               icon: const Icon(
                                 Icons.remove_circle,
                                 color: Colors.red,
                               ),
                             ),
+                            Center(
+                              child: SizedBox(
+                                width: 100,
+                                child: Center(child: Text(_qty)),
+                              ),
+                            ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                int temp = int.parse(_qty);
+                                if (temp == widget.post.quantity) return;
+                                temp++;
+                                setState(() {
+                                  _qty = temp.toString();
+                                });
+                              },
                               splashRadius: 16,
                               icon: const Icon(
                                 Icons.add_circle,
@@ -171,7 +202,15 @@ class CustomDialog extends StatelessWidget {
                               ),
                             ),
                           ],
-                        )
+                        ),
+                        CustomElevatedButton(
+                          title: 'Add To Cart',
+                          onTap: () {
+                            Provider.of<OrderProvider>(context, listen: false)
+                                .addInCart(widget.post, int.parse(_qty));
+                            Navigator.of(context).pop();
+                          },
+                        ),
                       ],
                     ),
                   ),

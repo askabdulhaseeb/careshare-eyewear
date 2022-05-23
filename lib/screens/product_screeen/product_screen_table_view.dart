@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../models/order.dart';
+import '../../providers/order_provider.dart';
 import '../../providers/product_provider.dart';
 import '../../widgets/app_name.dart';
+import '../../widgets/product/cart_dialoag.dart';
 import '../../widgets/product/product_gridview.dart';
 
 class ProductScreenTableView extends StatelessWidget {
@@ -36,11 +39,24 @@ class ProductScreenTableView extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) => const CartDIaloag(),
+                          );
+                        },
                         splashRadius: 16,
-                        icon: Icon(
-                          Icons.shopping_bag_outlined,
-                          color: Theme.of(context).primaryColor,
+                        icon: Consumer<OrderProvider>(
+                          builder: (BuildContext context,
+                              OrderProvider orderPro, _) {
+                            return CircleAvatar(
+                                radius: 20,
+                                child: Center(
+                                  child: Text(
+                                    orderPro.order.cartItem.length.toString(),
+                                  ),
+                                ));
+                          },
                         ),
                       ),
                     ],
