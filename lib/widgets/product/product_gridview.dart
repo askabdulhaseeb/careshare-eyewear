@@ -94,7 +94,11 @@ class CustomDialog extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.topRight,
                   children: <Widget>[
-                    CustomSlidableURLsTile(urls: post.urls),
+                    SizedBox(
+                      height: height / 2,
+                      width: double.infinity,
+                      child: CustomSlidableURLsTile(urls: post.urls),
+                    ),
                     IconButton(
                       onPressed: () => Navigator.of(context).pop(),
                       icon: const Icon(Icons.cancel),
@@ -105,7 +109,7 @@ class CustomDialog extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: SizedBox(
-                  height: (height / 2) - 32,
+                  height: (height / 2),
                   width: 300 - 40,
                   child: SingleChildScrollView(
                     child: Column(
