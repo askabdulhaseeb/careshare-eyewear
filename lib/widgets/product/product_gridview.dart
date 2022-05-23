@@ -103,9 +103,9 @@ class CustomDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: SizedBox(
-                  height: (height / 2) - 40,
+                  height: (height / 2) - 32,
                   width: 300 - 40,
                   child: SingleChildScrollView(
                     child: Column(
