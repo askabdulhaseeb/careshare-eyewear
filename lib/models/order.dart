@@ -13,7 +13,7 @@ class Order {
   final String uid;
   final String name;
   final DeliveryStatusEnum status;
-  final List<Cart> cartItem;
+  List<Cart> cartItem;
   final String rating;
   final int timestamp;
 

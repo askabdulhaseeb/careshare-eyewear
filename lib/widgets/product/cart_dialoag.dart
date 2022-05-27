@@ -5,6 +5,7 @@ import '../../models/order.dart';
 import '../../models/product.dart';
 import '../../providers/order_provider.dart';
 import '../../providers/product_provider.dart';
+import '../custom_widgets/custom_elevated_button.dart';
 import '../custom_widgets/custom_network_image.dart';
 
 class CartDIaloag extends StatelessWidget {
@@ -69,6 +70,18 @@ class CartDIaloag extends StatelessWidget {
                           },
                         ),
                 ),
+                carts.isEmpty
+                    ? const SizedBox()
+                    : Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: CustomElevatedButton(
+                            title: 'Place Order',
+                            onTap: () {
+                              Provider.of<OrderProvider>(context, listen: false)
+                                  .placeOrder();
+                              Navigator.of(context).pop();
+                            }),
+                      )
               ],
             ),
           );

@@ -28,4 +28,9 @@ class OrderProvider extends ChangeNotifier {
     _order.cartItem.add(temp);
     notifyListeners();
   }
+
+  placeOrder() {
+    _order.cartItem = <Cart>[];
+    notifyListeners();
+  }
 }
